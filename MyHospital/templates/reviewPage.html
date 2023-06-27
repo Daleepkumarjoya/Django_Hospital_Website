@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Review Page {% endblock %}
+{% block body %}
+
+
+
+<!--<h1 class="heading"><span>Post Comments</span></h1>-->
+
+<!--<div class="main">-->
+
+<!--       <div class="full-boxer">-->
+<!--           <div class="box">-->
+<!--      <form method="post" enctype="multipart/form-data">-->
+<!--      {% csrf_token %}-->
+<!--         <div class="upload">-->
+<!--           <img src="{% static 'images/ImgIcon.png' %}" name="img" width = 80 height = 80 alt="" id="photo">-->
+<!--             <div class="round">-->
+<!--              <input type="file" id="file" class="form-control" name="image">-->
+<!--           <i class="fa fa-camera" id="uploadbtn"></i>-->
+<!--       </div>-->
+<!--    </div>-->
+
+<!--       <textarea name="name" placeholder="Please Enter Your Name "></textarea>-->
+<!--        <textarea name="comments" placeholder="Write Your Comment Here"></textarea>-->
+<!--         <button class="comment-submit" type="submit">Comment</button>-->
+<!--      </form>-->
+<!--     </div>-->
+
+<!--      </div>-->
+<!--     </div>-->
+
+<!--</section>-->
+
+<section class="review" id="review">
+    {% for message in messages %}
+      <h2>{{message}}</h2>
+    {% endfor %}
+<div class="mx-5"><h2>Comments :</h2></div>
+<form action="/postComment/" method="post"  class="btn btn-primary">{% csrf_token %}
+    <input type="text" name="comment" placeholder="Enter Your Comment Here">
+    <input type="submit" value="Submit">
+</form>
+
+
+    {% for i in ReadComments %}
+        <div class="row mx-5 my-3">
+        <div class="col-md-1">
+           <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/ImgIcon.png" alt="user">
+        </div>
+            <div class="col-md-11 "><b>{{i.user}} says </b> at {{i.Times}}</div>
+            <div>{{i.comment}}.</div>
+    </div>
+{% endfor %}
+
+</section>
+
+
+{% endblock %}

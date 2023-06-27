@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{% block title %} {% endblock %} </title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="{% static 'CSSindex.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<header class="header">
+ <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>Medcare.</a>
+ <nav class="navbar">
+  <a class="{% if request.path == '/' %} active {% endif %}" href="/">Home</a>
+  <a class="{% if request.path == '/servicePage/' %} active {% endif %}" href="/servicePage/">Services</a>
+  <a class="{% if request.path == '/aboutPage/' %} active {% endif %}" href="/aboutPage/">About</a>
+  <a class="{% if request.path == '/doctorPage/' %} active {% endif %}" href="/doctorPage/">Doctors</a>
+  <a class="{% if request.path == '/bookPage/' %} active {% endif %}" href="/bookPage/">Book</a>
+  <a class="{% if request.path == '/postComment/' %} active {% endif %}" href="/postComment/">Post Comment</a>
+  <a class="{% if request.path == '/contactus/' %} active {% endif %}" href="/contactus/">Contact Us</a>
+  {% if user.is_authenticated %}
+  <a>Hello! {{user.username}}</a>
+  <a class="{% if request.path == '/LogOut/' %} active {% endif %}" href="/LogOut/">Logout</a>
+  {% else %}
+  <a class="{% if request.path == '/signup/' %} active {% endif %}" href="/signup/">Signup</a>
+  <a class="{% if request.path == '/login/' %} active {% endif %}" href="/Login/">Login</a>
+  {% endif %}
+</nav>  
+<div id="menu-btn" class="fas fa-bars"></div>
+</header>
+
+{% block body %}
+
+{% endblock %}
+
+
+
+
+<section class="footer">
+<div class="box-container">
+
+<div class="box">
+<h3>Quick Links</h3>
+ <a href="/"><i class="fas fa-chevron-right"></i> home </a>
+ <a href="/servicePage/"><i class="fas fa-chevron-right"></i> Services </a>
+ <a href="/aboutPage/"><i class="fas fa-chevron-right"></i> about </a>
+ <a href="/doctorPage/"><i class="fas fa-chevron-right"></i> doctors </a>
+ <a href="/bookPage/"><i class="fas fa-chevron-right"></i> book </a>
+ <a href="/reviewPage/"><i class="fas fa-chevron-right"></i> review </a>
+ <a href="/bookPage/"><i class="fas fa-chevron-right"></i> blogs </a>
+ <a href="/signup/"><i class="fas fa-chevron-right"></i> Signup </a>
+ <a href="/Login/"><i class="fas fa-chevron-right"></i> Login </a>
+</div>
+
+<div class="box">
+<h3>Our Services</h3>
+ <a href="#"><i class="fas fa-chevron-right"></i> Dental Care </a>
+ <a href="#"><i class="fas fa-chevron-right"></i>Message Therapy</a>
+ <a href="#"><i class="fas fa-chevron-right"></i>Cadioloty</a>
+ <a href="#"><i class="fas fa-chevron-right"></i>Diagnosis</a>
+ <a href="#"><i class="fas fa-chevron-right"></i>ambulance Services</a>
+</div>
+
+<div class="box">
+<h3>contact Informations</h3>
+ <a href="#"><i class="fas fa-phone"></i> +923243053647 </a>
+ <a href="#"><i class="fas fa-envelope"></i>daleepjoya98@gmail.com</a>
+ <a href="#"><i class="fas fa-map-marker-alt"></i>Daharki, Pakistan, Dist: Gotki</a>
+</div>
+
+<div class="box">
+<h3>follow Us </h3>
+ <a href="https://github.com/Daleepkumarjoya"><i class="fab fa-facebook-f"></i> Facebook </a>
+ <a href="https://github.com/Daleepkumarjoya"><i class="fab fa-twitter"></i>twitter</a>
+ <a href="https://github.com/Daleepkumarjoya"><i class="fab fa-instagram"></i>Instagram</a>
+ <a href="https://github.com/Daleepkumarjoya"><i class="fab fa-linkedin"></i>Linkedin</a>
+ <a href="https://github.com/Daleepkumarjoya"><i class="fab fa-pinterest"></i>pinterest</a>
+</div>
+
+</div>
+<div class="credit">Created By <span>Mr. Daleep Kumar Joya </span> | all right reserved</div>
+</section>
+
+
+
+  <script src="{% static 'Restaurant.js' %}"></script>
+</body>
+</html>

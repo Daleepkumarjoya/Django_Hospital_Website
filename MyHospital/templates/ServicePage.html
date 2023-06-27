@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Services Page {% endblock %}
+{% block body %}
+
+
+
+<section class="services" id="services">
+<h1 class="heading"> our <span>Services</span> </h1>
+<div class="box-container">
+{% for i in ServiceData %}
+<div class="box">
+<i class="fas fa-notes-medical"></i>
+<h3>{{i.ServiceName}}</h3>
+<p> {{i.careDesc | slice:"200" | capfirst }}...</p>
+<a href="/readMore/{{i.Service_slug}}" class="btn"> Read More <span class="fas fa-chevron-right"></span></a>
+</div>
+{% endfor %}
+</div>
+</section>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if ServiceData.has_previous %}
+    <li class="page-item"><a class="page-link" href="/servicePage/?page=1" tabindex="-1">First</a></li>
+    <li class="page-item"><a class="page-link" href="/servicePage/?page={{ServiceData.previous_page_number}}">Previous</a></li>
+    {% endif %}
+    {% for n in totalPageNumber %}
+    <li class="page-item"><a class="page-link" href="/servicePage/?page={{n}}">{{n}}</a></li>
+    {% endfor %}
+    {% if ServiceData.has_next %}
+    <li class="page-item"><a class="page-link" href="/servicePage/?page={{ServiceData.next_page_number}}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="/servicePage/?page={{lastpage}}">Last</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+{% endblock %}

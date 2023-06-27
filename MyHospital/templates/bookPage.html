@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Book Page {% endblock %}
+{% block body %}
+<div>
+{% for message in messages %}
+<h2>message</h2>
+{% endfor %}
+</div>
+<section class="book" id="book">
+<h1 class="heading"><span>book</span> now</h1>
+<div class="row">
+<div class="image">
+ <img src="{% static 'images\bookNow.png' %}" alt="img">
+</div>
+<form action="" method="post">{% csrf_token %}
+ <h3>Book appointment</h3>
+ <input type="text" placeholder="Enter Your Name Please" name="name" class="box">
+ <input type="number" placeholder="Enter Your Number Please" name="number" class="box">
+ <input type="email" placeholder="Enter Your Email Please" name="email" class="box">
+ <input type="date" name="date" class="box">
+ <input type="submit" class="btn" value="book now">
+</form>
+</div>
+</section>
+
+{% endblock %}

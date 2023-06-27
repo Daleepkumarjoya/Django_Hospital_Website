@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home Page {% endblock %}
+{% block body %}
+{% for i in AboutData %}
+<section class="about" id="about" xmlns="http://www.w3.org/1999/html">
+<h1 class="heading"><span>About</span> us </h1>
+<div class="row">
+<div class="image">
+<img src="/media/{{i.AboutUsImage}}" alt="img">
+</div>
+<div class="content">
+<h3>We Takecare of your health life</h3>
+<p>{{i.aboutUsDesc}}</p>
+
+</div>
+</div></dev>
+</section>
+{% endfor %}
+{% endblock %}

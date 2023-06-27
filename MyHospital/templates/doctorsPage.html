@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home Page {% endblock %}
+{% block body %}
+
+<section class="doctors" id="doctors">
+<h1 class="heading">our <span>Doctors</span></h1>
+    <form action="" method="get">
+        <input type="text" placeholder="Search Here" name="Doctor_name" class="box"></br>
+        <input type="submit" class="btn" value="Search">
+    </form>
+
+
+
+<div class="box-container">
+{% for i in DoctorData %}
+<div class="box">
+<img src="/media/{{i.DoctorImage}}" alt="img">
+<h3>{{i.DoctorName}}</h3>
+<span>{{i.DoctorExpertize}}</span>
+<div>
+<a href="https://github.com/Daleepkumarjoya" class="fab fa-facebook-f"></a>
+<a href="https://github.com/Daleepkumarjoya" class="fab fa-twitter"></a>
+<a href="https://github.com/Daleepkumarjoya" class="fab fa-instagram"></a>
+<a href="https://github.com/Daleepkumarjoya" class="fab fa-linkedin"></a>
+</div>
+</div>
+
+{% endfor %}
+</div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home Page {% endblock %}
+{% block body %}
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{% for message in messages %}
+  <h3>{{message}}</h3>
+    {% endfor %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<marquee onmouseover="stop()" onmouseout="start()">
+    <h1>Welcome to DK Hospital</h1>
+</marquee>
+{% for i in ModelData %}
+<section class="home" id="home">
+<div class="image">
+ <img src="media/{{i.HomeImage}}" alt="img">
+</div>
+<div class="homeContainer">
+<h3>Stay Safe, Stay healthy</h3>
+<p>{{i.safeDesc}}</p>
+
+</div>
+</section>
+
+
+
+<section class="icons-container">
+
+<div class="icons">
+<i class="fas fa-user-md"></i>
+<h3>{{i.doctorsAtWork}}+</h3>
+<p>Doctors at work</p>
+</div>
+
+<div class="icons">
+<i class="fas fa-users"></i>
+<h3>{{i.SatisfiedPatient}}+</h3>
+<p>Satisfied patients</p>
+</div>
+
+<div class="icons">
+<i class="fas fa-procedures"></i>
+<h3>{{i.BedFacility}}</h3>
+<p>bed Facility </p>
+</div>
+
+<div class="icons">
+<i class="fas fa-hospital"></i>
+<h3>{{i.Hospitals}}+</h3>
+<p>Available Hospitals</p>
+</div>
+</section>
+{% endfor %}
+
+{% endblock %}
